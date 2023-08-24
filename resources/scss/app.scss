@@ -1,0 +1,26 @@
+@import "./bootstrap/scss/bootstrap";
+
+.card {
+    border-color: transparent;
+}
+
+// Auth card
+@include media-breakpoint-up(sm) {
+    #auth-card{
+        min-width: map-get($grid-breakpoints, sm);
+    }
+}
+
+.btn-primary {
+    background-color: $gray-900;
+    border-color: transparent;
+
+    &:hover {
+        background-color: $gray-600;
+        border-color: transparent;
+    }
+}
+
+a {
+    color: $gray-600;
+}
