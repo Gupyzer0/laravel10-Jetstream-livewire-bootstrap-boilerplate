@@ -86,9 +86,9 @@
             @else
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-secondary-button class="mr-3">
+                        <x-button class="mr-3">
                             {{ __('Regenerate Recovery Codes') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @elseif ($showingConfirmation)
                     <x-confirms-password wire:then="confirmTwoFactorAuthentication">
@@ -98,23 +98,23 @@
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="showRecoveryCodes">
-                        <x-secondary-button class="mr-3">
+                        <x-button class="mr-3">
                             {{ __('Show Recovery Codes') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @endif
 
                 @if ($showingConfirmation)
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-secondary-button wire:loading.attr="disabled">
+                        <x-button wire:loading.attr="disabled">
                             {{ __('Cancel') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-danger-button wire:loading.attr="disabled">
+                        <x-button wire:loading.attr="disabled">
                             {{ __('Disable') }}
-                        </x-danger-button>
+                        </x-button>
                     </x-confirms-password>
                 @endif
 

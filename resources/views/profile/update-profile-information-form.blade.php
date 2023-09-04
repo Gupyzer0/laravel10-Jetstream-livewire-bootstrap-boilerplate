@@ -12,7 +12,8 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
+                <input type="file" class="invisible"
+                            style="position: absolute"
                             wire:model="photo"
                             x-ref="photo"
                             x-on:change="
@@ -28,24 +29,24 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <span class="d-block rounded-circle" style="background-image: url({{ $this->user->profile_photo_url }});width:64px; height:64px; background-size: cover;background-repeat: no-repeat;background-position: center;">
                 </div>
 
                 <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                <div class="mt-2" x-show="photoPreview">
+                    <!--<span class="d-block rounded-circle w-20 h-20bg-cover bg-no-repeat bg-center" -->
+                    <span class="d-block rounded-circle" x-bind:style="'background-image: url(\'' + photoPreview + '\');width:64px; height:64px; background-size: cover;background-repeat: no-repeat;background-position: center;'">
                     </span>
                 </div>
 
-                <x-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                <x-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('Select A New Photo') }}
-                </x-secondary-button>
+                </x-button>
 
                 @if ($this->user->profile_photo_path)
-                    <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
+                    <x-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}
-                    </x-secondary-button>
+                    </x-button>
                 @endif
 
                 <x-input-error for="photo" class="mt-2" />
