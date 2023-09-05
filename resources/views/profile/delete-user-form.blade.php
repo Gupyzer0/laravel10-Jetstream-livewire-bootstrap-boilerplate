@@ -8,12 +8,12 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
+        <div>
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </div>
 
         <div class="mt-5">
-            <x-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+            <x-button class="btn-primary" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                 {{ __('Delete Account') }}
             </x-button>
         </div>
@@ -40,11 +40,11 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                <x-button class="btn-light" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
                 </x-button>
 
-                <x-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                <x-button class="ml-3 btn-danger" wire:click="deleteUser" wire:loading.attr="disabled">
                     {{ __('Delete Account') }}
                 </x-button>
             </x-slot>

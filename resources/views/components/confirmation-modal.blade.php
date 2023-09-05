@@ -6,8 +6,8 @@
 
         <div class="modal-header">
 
-            <h3 class="d-flex flex-row align-items-center">
-                <div class="rounded-circle d-flex justify-content-center align-items-center me-1 bg-danger bg-opacity-10" style="width:45px; height:45px">
+            <h4 class="d-flex flex-row align-items-center">
+                <div class="rounded-circle d-flex justify-content-center align-items-center me-1 bg-danger bg-opacity-10 me-3" style="width:45px; height:45px">
                     <svg class="text-danger" xmlns="http://www.w3.org/2000/svg" style="width:25px; height:25px" fill="none" viewBox="0 0 24 24"
                         stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round"
