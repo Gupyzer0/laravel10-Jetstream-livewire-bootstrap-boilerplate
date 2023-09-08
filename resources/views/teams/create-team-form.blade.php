@@ -1,4 +1,4 @@
-<x-form-section submit="createTeam">
+<x-form-section class="mt-3" submit="createTeam">
     <x-slot name="title">
         {{ __('Team Details') }}
     </x-slot>
@@ -8,15 +8,16 @@
     </x-slot>
 
     <x-slot name="form">
-        <div class="col-span-6">
+        <div class="">
             <x-label value="{{ __('Team Owner') }}" />
 
-            <div class="flex items-center mt-2">
-                <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
+            <div class="d-flex align-items-center mt-2 mb-2">
+                
+                <img class="rounded-circle" style="width:3rem; height:3rem;" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
 
-                <div class="ml-4 leading-tight">
-                    <div class="text-gray-900">{{ $this->user->name }}</div>
-                    <div class="text-gray-700 text-sm">{{ $this->user->email }}</div>
+                <div class="ms-3 leading-tight">
+                    <div>{{ $this->user->name }}</div>
+                    <div>{{ $this->user->email }}</div>
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-button>
+        <x-button class="btn-primary">
             {{ __('Create') }}
         </x-button>
     </x-slot>

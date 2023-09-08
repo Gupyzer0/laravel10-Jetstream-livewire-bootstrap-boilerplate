@@ -1,4 +1,4 @@
-<x-form-section submit="updateTeamName">
+<x-form-section class="mt-3" submit="updateTeamName">
     <x-slot name="title">
         {{ __('Team Name') }}
     </x-slot>
@@ -17,8 +17,8 @@
                 <img class="rounded-circle" style="width:3rem; height:3rem;" src="{{ $team->owner->profile_photo_url }}" alt="{{ $team->owner->name }}">
 
                 <div class="ms-3 leading-tight">
-                    <div class="">{{ $team->owner->name }}</div>
-                    <div class="">{{ $team->owner->email }}</div>
+                    <div>{{ $team->owner->name }}</div>
+                    <div>{{ $team->owner->email }}</div>
                 </div>
             </div>
         </div>

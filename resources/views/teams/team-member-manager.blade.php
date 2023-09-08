@@ -3,7 +3,7 @@
         <hr>
 
         <!-- Add Team Member -->
-        <div class="mt-10">
+        <div class="mt-5">
             <x-form-section submit="addTeamMember">
                 <x-slot name="title">
                     {{ __('Add Team Member') }}
@@ -87,7 +87,7 @@
         <hr>
 
         <!-- Team Member Invitations -->
-        <div class="mt-10">
+        <div>
             <x-action-section>
                 <x-slot name="title">
                     {{ __('Pending Team Invitations') }}
@@ -124,7 +124,7 @@
         <hr>
 
         <!-- Manage Team Members -->
-        <div class="mt-10">
+        <div class="mt-5">
             <x-action-section>
                 <x-slot name="title">
                     {{ __('Team Members') }}
@@ -147,7 +147,7 @@
                                 <div class="flex items-center">
                                     <!-- Manage Team Member Role -->
                                     @if (Gate::check('updateTeamMember', $team) && Laravel\Jetstream\Jetstream::hasRoles())
-                                        <button class="ms-2 underline btn" wire:click="manageRole('{{ $user->id }}')">
+                                        <button class="ms-2 text-decoration-underline btn" wire:click="manageRole('{{ $user->id }}')">
                                             {{ Laravel\Jetstream\Jetstream::findRole($user->membership->role)->name }}
                                         </button>
                                     @elseif (Laravel\Jetstream\Jetstream::hasRoles())
@@ -185,37 +185,39 @@
 
         <x-slot name="content">
             @foreach ($this->roles as $index => $role)
-                <button type="button" class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 {{ $index > 0 ? 'border-t border-gray-200 focus:border-none rounded-t-none' : '' }} {{ ! $loop->last ? 'rounded-b-none' : '' }}"
+                
+                <button type="button" class="p-2 bg-body w-100 border-0 border-start border-end border-gray-200 {{ $index > 0 ? 'border-top ' : '' }} {{ $index == 0 ? 'border-top rounded-top ' : '' }} {{ $loop->last ? 'border-bottom rounded-bottom' : '' }}"
                                 wire:click="$set('currentRole', '{{ $role->key }}')">
                     <div class="{{ $currentRole !== $role->key ? 'opacity-50' : '' }}">
                         <!-- Role Name -->
-                        <div class="flex items-center">
-                            <div class="text-sm text-gray-600 {{ $currentRole == $role->key ? 'font-semibold' : '' }}">
+                        <div class="d-flex align-items-center">
+                            <div class="text-start {{ $currentRole == $role->key ? 'font-semibold' : '' }}">
                                 {{ $role->name }}
                             </div>
 
                             @if ($currentRole == $role->key)
-                                <svg class="ml-2 h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
+                            <svg class="ms-2 text-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:1.25rem; height_1.25rem">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             @endif
                         </div>
 
                         <!-- Role Description -->
-                        <div class="mt-2 text-xs text-gray-600">
+                        <div class="mt-2 text-start">
                             {{ $role->description }}
                         </div>
                     </div>
                 </button>
+
             @endforeach
         </x-slot>
 
         <x-slot name="footer">
-            <x-button wire:click="stopManagingRole" wire:loading.attr="disabled">
+            <x-button class="btn-light" wire:click="stopManagingRole" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-button>
 
-            <x-button class="ml-3" wire:click="updateRole" wire:loading.attr="disabled">
+            <x-button class="ml-3 btn-primary" wire:click="updateRole" wire:loading.attr="disabled">
                 {{ __('Save') }}
             </x-button>
         </x-slot>

@@ -1,4 +1,4 @@
-<div>
+<div class="mt-3">
     <!-- Generate API Token -->
     <x-form-section submit="createApiToken">
         <x-slot name="title">
@@ -57,7 +57,7 @@
         <hr>
 
         <!-- Manage API Tokens -->
-        <div class="mt-10">
+        <div class="mt-5">
             <x-action-section>
                 <x-slot name="title">
                     {{ __('Manage API Tokens') }}

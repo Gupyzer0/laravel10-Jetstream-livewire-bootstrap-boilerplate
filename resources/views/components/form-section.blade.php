@@ -13,7 +13,7 @@
             <form wire:submit.prevent="{{ $submit }}">
                 {{ $form }}
                 @if (isset($actions))
-                    <div class="d-flex align-items-center justify-content-end px-4 py-1">
+                    <div class="d-flex align-items-center justify-content-end py-1 mt-2">
                         {{ $actions }}
                     </div>
                 @endif
