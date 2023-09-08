@@ -98,7 +98,7 @@
                     @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <li class="nav-item dropdown">
                         <button type="button"
-                            class="d-inline-flex align-items-center px-3 py-2 dropdown-toggle border-0 rounded bg-white hover-light-gray"
+                            class="d-inline-flex align-items-center px-3 py-2 dropdown-toggle border-0 text-body-secondary rounded bg-white hover-light-gray"
                             id="dropdown_manage_teams" data-bs-toggle="dropdown">
                             {{ Auth::user()->currentTeam->name }}
                         </button>
