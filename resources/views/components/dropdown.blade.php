@@ -1,3 +1,3 @@
-<ul style="min-width:12rem" {{ $attributes->merge(['class' => 'dropdown-menu shadow-sm dropdown-menu-lg-end border-0']) }}>
+<ul {{ $attributes->merge(['class' => 'dropdown-menu shadow-sm dropdown-menu-lg-end']) }}>
     {{ $content }}
 </ul>

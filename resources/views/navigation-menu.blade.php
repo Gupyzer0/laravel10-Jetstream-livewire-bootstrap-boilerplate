@@ -108,7 +108,7 @@
                             <x-slot name="content">
 
                                 <!-- Team Management -->
-                                <div class="d-block px-4 py-2">
+                                <div class="d-block py-2 px-3 fs-7 text-black-50">
                                     {{ __('Manage Team') }}
                                 </div>
 
@@ -123,10 +123,12 @@
                                     </x-dropdown-link>
                                 @endcan
 
+                                <hr>
+
                                 <!-- Team Switcher -->
                                 @if (Auth::user()->allTeams()->count() > 1)
 
-                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                <div class="d-block px-3 mb-3 fs-7 text-black-50">
                                     {{ __('Switch Teams') }}
                                 </div>
 
@@ -162,7 +164,7 @@
 
                             <x-slot name="content">
 
-                                <div class="d-block px-4 py-2">
+                                <div class="d-block py-2 px-3 fs-7 text-black-50">
                                     {{ __('Manage Account') }}
                                 </div>
 
@@ -176,7 +178,7 @@
                                 </x-dropdown-link>
                                 @endif
 
-                                <div class="border-t border-gray-200"></div>
+                                <hr class="my-1">
 
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}" x-data>

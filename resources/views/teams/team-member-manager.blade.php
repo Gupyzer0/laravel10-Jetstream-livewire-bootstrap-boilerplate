@@ -255,11 +255,11 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
+            <x-button class="btn-light" wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-button>
 
-            <x-button class="ml-3" wire:click="removeTeamMember" wire:loading.attr="disabled">
+            <x-button class="ml-3 btn-primary" wire:click="removeTeamMember" wire:loading.attr="disabled">
                 {{ __('Remove') }}
             </x-button>
         </x-slot>

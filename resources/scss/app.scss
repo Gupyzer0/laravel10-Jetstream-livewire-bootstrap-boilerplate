@@ -30,6 +30,15 @@ $utilities: (
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+hr {
+    color: $gray-500;
+}
+
+// fs
+.fs-7{
+    font-size: 0.75rem;
+}
+
 // Card
 .card {
     border-color: transparent;
@@ -155,9 +164,16 @@ a {
     }
 }
 
+.dropdown-menu {
+    min-width: 15rem;
+    border-color: $gray-200;
+}
+
 .color-teal-400{
     color: $teal-400;
 }
+
+// Modal
 
 .modal-backdrop {
     position: fixed;

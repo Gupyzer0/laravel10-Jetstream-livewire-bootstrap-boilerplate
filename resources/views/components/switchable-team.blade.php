@@ -7,7 +7,7 @@
     <!-- Hidden Team ID -->
     <input type="hidden" name="team_id" value="{{ $team->id }}">
 
-    <a href="#" class="navbar-link h-4r" x-on:click.prevent="$root.submit();">
+    <a href="#" class="navbar-link h-2r px-3" x-on:click.prevent="$root.submit();">
         
         <div class="d-flex align-items-center">
             @if (Auth::user()->isCurrentTeam($team))
