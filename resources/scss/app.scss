@@ -208,3 +208,14 @@ a {
     justify-content: end;
     align-items: center;
 }
+
+// Terms and policy
+.card-terms {
+    width: 50%;
+}
+
+@include media-breakpoint-down(lg) { 
+    .card-terms{
+        width: 95%;
+    }
+}

@@ -26,9 +26,9 @@
             </div>
 
             <div class="">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2">{{ __('Remember me') }}</span>
+                <label for="remember_me" class="d-flex align-items-center">
+                    <x-checkbox class="mb-1" id="remember_me" name="remember" />
+                    <span class="ms-2">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
