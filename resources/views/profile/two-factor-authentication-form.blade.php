@@ -69,9 +69,11 @@
                 </div>
 
                 <div>
+                    <div class="alert alert-warning" role="alert">
                     @foreach (json_decode(decrypt($this->user->two_factor_recovery_codes), true) as $code)
-                        <div>{{ $code }}</div>
+                        {{ $code }} <br>
                     @endforeach
+                    </div>
                 </div>
             @endif
         @endif
@@ -86,19 +88,19 @@
             @else
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-button class="mr-3">
+                        <x-button class="me-3 btn-light">
                             {{ __('Regenerate Recovery Codes') }}
                         </x-button>
                     </x-confirms-password>
                 @elseif ($showingConfirmation)
                     <x-confirms-password wire:then="confirmTwoFactorAuthentication">
-                        <x-button type="button" class="mr-3" wire:loading.attr="disabled">
+                        <x-button type="button" class="me-3 btn-primary" wire:loading.attr="disabled">
                             {{ __('Confirm') }}
                         </x-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="showRecoveryCodes">
-                        <x-button class="mr-3">
+                        <x-button class="me-3 btn-light">
                             {{ __('Show Recovery Codes') }}
                         </x-button>
                     </x-confirms-password>
@@ -112,7 +114,7 @@
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-button wire:loading.attr="disabled">
+                        <x-button class="btn-light" wire:loading.attr="disabled">
                             {{ __('Disable') }}
                         </x-button>
                     </x-confirms-password>
