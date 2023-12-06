@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 import {resolve} from 'path'
 
-
 export default defineConfig({
     plugins: [
         laravel({
@@ -12,13 +11,13 @@ export default defineConfig({
             ],
             refresh: [
                 ...refreshPaths,
-                'app/Http/Livewire/**',
+                'app/Livewire/**',
             ],
+            resolve: {
+                aliases: {
+                    '~bootstrap': resolve(__dirname, 'node_modules/bootstrap')
+                }
+            }
         }),
     ],
-    resolve: {
-        aliases: {
-            '~bootstrap': resolve(__dirname, 'node_modules/bootstrap')
-        }
-    }
 });

@@ -15,8 +15,9 @@
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     </head>
     <body>
-        <div class="container-fluid g-0 d-flex justify-content-center align-items-center min-vh-100 bg-light">
+        <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100 bg-light">
             {{ $slot }}
         </div>
+        @livewireScripts
     </body>
 </html>
