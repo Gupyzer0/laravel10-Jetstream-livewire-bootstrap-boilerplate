@@ -70,7 +70,7 @@
                 <p class="mt-2">
                     {{ __('Your email address is unverified.') }}
 
-                    <button type="button" class="underline" wire:click.prevent="sendEmailVerification">
+                    <button type="button" class="btn-light" wire:click.prevent="sendEmailVerification">
                         {{ __('Click here to re-send the verification email.') }}
                     </button>
                 </p>
