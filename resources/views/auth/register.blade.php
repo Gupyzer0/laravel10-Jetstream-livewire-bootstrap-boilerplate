@@ -4,86 +4,57 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        <div class="row justify-content-center">
+        <x-validation-errors class="mb-4" />
 
-            <x-validation-errors class="mb-4" />
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-            <h1><i class="bi bi-key"></i>
-                Registro de nuevo usuario</h1>
-            <hr>
+            <div>
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="w-100" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
 
-            <form method="post" action="/registro">
+            <div class="mt-4">
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="w-100" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
 
-                @csrf
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="w-100" type="password" name="password" required autocomplete="new-password" />
+            </div>
 
-                <div class="row mb-3 d-flex align-items-start">
+            <div class="mt-4">
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" class="w-100" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
 
-                    <div class="col-3">
-                        {{ Form::select('size', ['V' => 'V', 'E' => 'E'], 'V', ['class' => 'form-control']) }}
-                        <div class="form-text">Seleccione su nacionalidad</div>
-                    </div>
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-label for="terms">
+                        <div class="d-flex align-items-center">
+                            <x-checkbox class="mb-1" name="terms" id="terms" required />
 
-                    <div class="col-9">
-                        {{ Form::text('cedula',null,['class' => 'form-control']) }}
-                        <div class="form-text">Número de cédula</div>
-                    </div>
-
-                    <!--<div class="col-lg-3 col-md-3 d-none d-xl-block d-lg-block d-md-block text-center">
-                        <i class="bi bi-person-rolodex" style="font-size: 90px;"></i>
-                    </div> -->
-
+                            <div class="ms-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-label>
                 </div>
+            @endif
 
-                <div class="mb-3 d-flex justify-content-end">
+            <div class="d-flex align-items-center justify-content-end mt-4">
+                <a class="" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
 
-                    <a class="btn btn-light me-2" href="" role="button">Regresar</a>
-
-                    <x-button class="btn-primary">
-                        Buscar Trabajador
-                    </x-button>
-
-                </div>
-
-                <div id="cargando" class="text-center" style="display:none">
-                    <hr>
-                    Cargando . . .
-                </div>
-
-                <div id="datos_usuario" class="mb-3" >
-
-                    <hr class="mb-0">
-
-                    <table class="table table-striped table-hover table-responsive w-100">
-
-                        <tr>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Cargo</th>
-                            <th>Correo</th>
-                        </tr>
-
-                        <tr>
-                            <td id="td_nombres"></td>
-                            <td id="td_apellidos"></td>
-                            <td id="td_cargo"></td>
-                            <td id="td_correo"></td>
-                        </tr>
-
-                    </table>
-
-                </div>
-
-                <div class="mb-3 text-center">
-                    
-                    <x-button class="btn-primary">
-                        Registrarse
-                    </x-button>
-
-                </div>
-
-            </form>
-
-        </div>
-
+                <x-button class="ms-4 btn-primary">
+                    {{ __('Register') }}
+                </x-button>
+            </div>
+        </form>
     </x-authentication-card>
 </x-guest-layout>
